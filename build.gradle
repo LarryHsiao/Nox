@@ -8,6 +8,8 @@ plugins {
 group 'com.silverhetch'
 version '1.0.0'
 
+mainClassName='com.silverhetch.nox.Mainkt'
+
 repositories {
     mavenCentral()
     maven { url = 'http://172.104.79.181:81/repository/Elizabeth/' }
