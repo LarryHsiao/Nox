@@ -1,9 +1,9 @@
-package com.silverhetch.nox.takes
+package com.silverhetch.nox.takes.log
 
 import com.silverhetch.clotho.Source
 import com.silverhetch.clotho.log.Log
-import com.silverhetch.nox.log.DbLogInsert
-import com.silverhetch.nox.log.LogType
+import com.silverhetch.nox.model.log.DbLogInsert
+import com.silverhetch.nox.model.log.LogType
 import org.takes.Request
 import org.takes.Response
 import org.takes.Take
@@ -11,7 +11,7 @@ import org.takes.rs.RsEmpty
 import java.sql.Connection
 import javax.json.Json
 
-class TkInsertLog(private val dbConn: Source<Connection>, private val log: Log) : Take {
+class TkLogInsertion(private val dbConn: Source<Connection>, private val log: Log) : Take {
     override fun act(req: Request?): Response {
         if (req == null) {
             return RsEmpty()

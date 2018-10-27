@@ -1,9 +1,9 @@
-package com.silverhetch.nox.takes
+package com.silverhetch.nox.takes.log
 
 import com.silverhetch.clotho.Source
 import com.silverhetch.clotho.source.ConstSource
-import com.silverhetch.nox.log.NoxLog
-import com.silverhetch.nox.takes.json.LogsArray
+import com.silverhetch.nox.model.log.NoxLog
+import com.silverhetch.nox.model.log.json.LogsArray
 import org.takes.Request
 import org.takes.Response
 import org.takes.Take

@@ -1,4 +1,4 @@
-package com.silverhetch.nox.log
+package com.silverhetch.nox.model.log
 
 import com.silverhetch.clotho.Source
 import java.sql.Connection

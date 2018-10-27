@@ -1,8 +1,9 @@
 package com.silverhetch.nox.takes
 
 import com.silverhetch.clotho.source.ConstSource
-import com.silverhetch.nox.log.ConstLog
-import com.silverhetch.nox.log.LogType
+import com.silverhetch.nox.model.log.ConstLog
+import com.silverhetch.nox.model.log.LogType
+import com.silverhetch.nox.takes.log.TkPagedLogs
 import org.cactoos.text.TextOf
 import org.junit.Assert.assertEquals
 import org.junit.Test
