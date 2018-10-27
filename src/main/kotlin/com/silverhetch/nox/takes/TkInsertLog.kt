@@ -12,18 +12,19 @@ import org.takes.rs.RsEmpty
 import java.sql.Connection
 import javax.json.Json
 
-class TkInsertLog(private val dbConn: Source<Connection>, private val log: Log = BeautyLog().fetch()) : Take {
+class TkInsertLog(private val dbConn: Source<Connection>, private val log: Log) : Take {
     override fun act(req: Request?): Response {
         if (req == null) {
             return RsEmpty()
         }
-            Json.createReader(req.body()).readObject().let {
-                DbLogInsert(
-                    dbConn,
-                    LogType.fromString(it.getString("type", "")),
-                    it.getString("message", "")
-                ).fetch()
-            }
+        Json.createReader(req.body()).readObject().let {
+            log.info("Insert: $it")
+            DbLogInsert(
+                dbConn,
+                LogType.fromString(it.getString("type", "")),
+                it.getString("message", "")
+            ).fetch()
+        }
         return RsEmpty()
     }
 }

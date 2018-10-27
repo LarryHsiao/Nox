@@ -18,7 +18,7 @@ repositories {
 dependencies {
     testCompile "junit:junit:4.12"
     compile "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
-    compile "com.silverhetch:clotho:1.0.5134932"
+    compile "com.silverhetch:clotho:1.0.5135381"
     compile 'org.xerial:sqlite-jdbc:3.15.1'
     compile 'org.takes:takes:1.11.3'
     compile 'com.jcabi:jcabi-http:1.17.2'

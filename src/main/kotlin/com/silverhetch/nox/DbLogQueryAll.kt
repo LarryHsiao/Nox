@@ -9,7 +9,7 @@ import java.sql.Connection
  */
 class DbLogQueryAll(private val conn: Source<Connection>) : Source<List<NoxLog>> {
     override fun fetch(): List<NoxLog> {
-        conn.fetch().createStatement().executeQuery("""select * from log;""").use {
+        conn.fetch().createStatement().executeQuery("""select * from log order by insertTime DESC;""").use {
             val result = ArrayList<NoxLog>()
             while (it.next()) {
                 result.add(ConstLog(
