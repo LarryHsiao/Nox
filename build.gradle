@@ -8,7 +8,7 @@ plugins {
 group 'com.silverhetch'
 version '1.0.0'
 
-mainClassName='com.silverhetch.nox.Mainkt'
+mainClassName='com.silverhetch.nox.Main'
 
 repositories {
     mavenCentral()
