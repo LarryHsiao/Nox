@@ -2,7 +2,7 @@ package com.silverhetch.nox.takes
 
 import com.silverhetch.clotho.Source
 import com.silverhetch.nox.NoxLog
-import com.silverhetch.nox.takes.json.JsonLogs
+import com.silverhetch.nox.takes.json.LogsArray
 import org.takes.Request
 import org.takes.Response
 import org.takes.Take
@@ -47,7 +47,7 @@ class TkPagedLogs(private val source: Source<List<NoxLog>>) : Take {
                 .add("started", started)
                 .add("total", logs.size)
                 .add("logs",
-                    JsonLogs(
+                    LogsArray(
                         object : Source<List<NoxLog>> {
                             override fun fetch(): List<NoxLog> {
                                 return logs.subList(

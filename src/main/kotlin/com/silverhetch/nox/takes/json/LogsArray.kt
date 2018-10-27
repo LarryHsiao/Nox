@@ -8,7 +8,7 @@ import javax.json.JsonStructure
 /**
  * Source that build json array of given [NoxLog]
  */
-class JsonLogs(private val logs: Source<List<NoxLog>>) : Source<JsonStructure> {
+class LogsArray(private val logs: Source<List<NoxLog>>) : Source<JsonStructure> {
     override fun fetch(): JsonStructure {
         return Json.createArrayBuilder().apply {
             logs.fetch().let { logList ->
