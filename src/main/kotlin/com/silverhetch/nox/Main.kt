@@ -12,12 +12,21 @@ import com.silverhetch.nox.takes.TkShutdown
 import com.silverhetch.nox.takes.TkSimpleJson
 import com.silverhetch.nox.takes.log.TkLogInsertion
 import com.silverhetch.nox.takes.log.TkPagedLogs
+import org.apache.commons.cli.DefaultParser
+import org.apache.commons.cli.Option
+import org.apache.commons.cli.Options
 import org.takes.facets.fork.FkMethods
 import org.takes.facets.fork.FkRegex
 import org.takes.facets.fork.TkFork
 import org.takes.http.FtBasic
 
 fun main(arg: Array<String>) {
+    val cmd = DefaultParser().parse(Options().apply {
+        addOption(Option("p", "port", true, "Running Port"))
+    }, arg)
+
+    val port = cmd.getOptionValue("port", "8080").toInt()
+
     val log = BeautyLog().fetch()
     val dbConn = SingleConn(
         NoxDbConn(
@@ -44,6 +53,6 @@ fun main(arg: Array<String>) {
             ),
             FkRegex("/Exit", tkShutdown)
         ),
-        8080
+        port
     ).start(tkShutdown)
 }

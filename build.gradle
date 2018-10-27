@@ -8,7 +8,7 @@ plugins {
 group 'com.silverhetch'
 version '1.0.0'
 
-mainClassName='com.silverhetch.nox.Main'
+mainClassName = 'com.silverhetch.nox.Main'
 
 repositories {
     mavenCentral()
@@ -26,6 +26,7 @@ dependencies {
     compile 'javax.json:javax.json-api:1.1'
     compile 'org.glassfish:javax.json:1.1'
     compile 'org.cactoos:cactoos:0.38'
+    compile 'commons-cli:commons-cli:1.3.1'
     testCompile 'org.glassfish.jersey.core:jersey-common:2.22.2'
     testCompile group: 'org.slf4j', name: 'slf4j-simple', version: '1.6.2'
 
