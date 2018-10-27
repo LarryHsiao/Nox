@@ -1,6 +1,7 @@
 package com.silverhetch.nox.takes
 
 import com.silverhetch.clotho.Source
+import com.silverhetch.clotho.source.ConstSource
 import com.silverhetch.nox.NoxLog
 import com.silverhetch.nox.takes.json.LogsArray
 import org.takes.Request
@@ -22,7 +23,7 @@ class TkPagedLogs(private val source: Source<List<NoxLog>>) : Take {
         var started = 0
         val href = RqHref.Base(req).href()
         href.param("started").let {
-            if (it.iterator().hasNext()) {
+            if (it.iterator().hasNext() && !it.first().isEmpty()) {
                 started = it.first().toInt()
             }
         }
@@ -48,14 +49,10 @@ class TkPagedLogs(private val source: Source<List<NoxLog>>) : Take {
                 .add("total", logs.size)
                 .add("logs",
                     LogsArray(
-                        object : Source<List<NoxLog>> {
-                            override fun fetch(): List<NoxLog> {
-                                return logs.subList(
-                                    started,
-                                    ended
-                                )
-                            }
-                        }
+                        ConstSource(logs.subList(
+                            started,
+                            ended
+                        ))
                     ).fetch()
                 ).build()
         )
