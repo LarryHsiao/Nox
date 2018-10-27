@@ -1,9 +1,9 @@
 package com.silverhetch.nox.takes.json
 
 import com.silverhetch.clotho.Source
-import com.silverhetch.nox.ConstLog
-import com.silverhetch.nox.LogType
-import com.silverhetch.nox.NoxLog
+import com.silverhetch.nox.log.ConstLog
+import com.silverhetch.nox.log.LogType
+import com.silverhetch.nox.log.NoxLog
 import org.junit.Assert
 import org.junit.Test
 

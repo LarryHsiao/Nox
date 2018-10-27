@@ -1,4 +1,4 @@
-package com.silverhetch.nox
+package com.silverhetch.nox.log
 
 import com.silverhetch.clotho.Source
 import java.sql.Connection
@@ -6,7 +6,7 @@ import java.sql.Connection
 /**
  * Log database connection.
  */
-class NoxDbConn(private val conn: Source<Connection>) : Source<Connection> {
+class LogDbConn(private val conn: Source<Connection>) : Source<Connection> {
     override fun fetch(): Connection {
         return conn.fetch().also { conn ->
             conn.createStatement().use { statement ->

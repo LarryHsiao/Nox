@@ -1,7 +1,7 @@
 package com.silverhetch.nox.takes.json
 
 import com.silverhetch.clotho.Source
-import com.silverhetch.nox.NoxLog
+import com.silverhetch.nox.log.NoxLog
 import javax.json.Json
 import javax.json.JsonStructure
 

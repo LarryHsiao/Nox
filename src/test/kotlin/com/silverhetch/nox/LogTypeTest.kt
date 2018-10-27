@@ -1,5 +1,6 @@
 package com.silverhetch.nox
 
+import com.silverhetch.nox.log.LogType
 import org.junit.Assert.assertEquals
 import org.junit.Test
 

@@ -1,10 +1,9 @@
 package com.silverhetch.nox.takes
 
 import com.silverhetch.clotho.Source
-import com.silverhetch.clotho.log.BeautyLog
 import com.silverhetch.clotho.log.Log
-import com.silverhetch.nox.DbLogInsert
-import com.silverhetch.nox.LogType
+import com.silverhetch.nox.log.DbLogInsert
+import com.silverhetch.nox.log.LogType
 import org.takes.Request
 import org.takes.Response
 import org.takes.Take

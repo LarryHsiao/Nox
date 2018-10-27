@@ -3,6 +3,8 @@ package com.silverhetch.nox
 import com.silverhetch.clotho.database.SingleConn
 import com.silverhetch.clotho.database.sqlite.InMemoryConn
 import com.silverhetch.clotho.log.BeautyLog
+import com.silverhetch.nox.log.DbLogQueryAll
+import com.silverhetch.nox.log.LogDbConn
 import com.silverhetch.nox.takes.TkInsertLog
 import com.silverhetch.nox.takes.TkNoxStatus
 import com.silverhetch.nox.takes.TkPagedLogs
@@ -15,7 +17,7 @@ import org.takes.http.FtBasic
 fun main(arg: Array<String>) {
     val log = BeautyLog().fetch()
     val dbConn = SingleConn(
-        NoxDbConn(
+        LogDbConn(
             InMemoryConn()
         )
     )

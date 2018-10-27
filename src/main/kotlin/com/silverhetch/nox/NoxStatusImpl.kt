@@ -1,6 +1,7 @@
 package com.silverhetch.nox
 
 import com.silverhetch.clotho.Source
+import com.silverhetch.nox.log.DbLogQueryAll
 import java.sql.Connection
 
 /**
