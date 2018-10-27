@@ -8,13 +8,13 @@ import com.silverhetch.nox.model.log.DbLogQueryAll
 import com.silverhetch.nox.model.tag.DbTags
 import com.silverhetch.nox.model.tag.json.TagsArray
 import com.silverhetch.nox.takes.TkNoxStatus
+import com.silverhetch.nox.takes.TkShutdown
 import com.silverhetch.nox.takes.TkSimpleJson
 import com.silverhetch.nox.takes.log.TkLogInsertion
 import com.silverhetch.nox.takes.log.TkPagedLogs
 import org.takes.facets.fork.FkMethods
 import org.takes.facets.fork.FkRegex
 import org.takes.facets.fork.TkFork
-import org.takes.http.Exit
 import org.takes.http.FtBasic
 
 fun main(arg: Array<String>) {
@@ -24,7 +24,7 @@ fun main(arg: Array<String>) {
             InMemoryConn()
         )
     )
-
+    val tkShutdown = TkShutdown()
     FtBasic(
         TkFork(
             FkRegex("/logs(.*)",
@@ -41,8 +41,9 @@ fun main(arg: Array<String>) {
                 TkFork(
                     FkMethods("GET", TkSimpleJson(TagsArray(DbTags(dbConn))))
                 )
-            )
+            ),
+            FkRegex("/Exit", tkShutdown)
         ),
         8080
-    ).start(Exit.NEVER)
+    ).start(tkShutdown)
 }
