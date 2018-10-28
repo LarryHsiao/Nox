@@ -16,7 +16,8 @@ class DbLogQueryAllTest {
         DbLogInsert(
             dbConn,
             LogType.INFO,
-            "Message"
+            "Message",
+            System.currentTimeMillis()
         ).fetch()
 
         val result = DbLogQueryAll(

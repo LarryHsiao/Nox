@@ -15,7 +15,7 @@ class LogDbConn(private val conn: Source<Connection>) : Source<Connection> {
                       id         integer primary key autoincrement,
                       type       text not null,
                       message    text not null,
-                      insertTime datetime DEFAULT(STRFTIME('%Y-%m-%d %H:%M:%f', 'NOW'))
+                      logTime datetime DEFAULT(STRFTIME('%Y-%m-%d %H:%M:%f', 'NOW'))
                     );""")
             }
         }

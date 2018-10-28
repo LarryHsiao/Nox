@@ -25,7 +25,8 @@ class TkLogInsertionTest{
             """
                 {
                     "type":"abc",
-                    "message": "This is message"
+                    "message": "This is message",
+                    "logTime": 1234567890000
                 }
                 """)
         )

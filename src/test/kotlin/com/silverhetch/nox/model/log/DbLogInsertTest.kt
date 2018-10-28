@@ -10,7 +10,8 @@ class DbLogInsertTest {
         val newLog = DbLogInsert(
             LogDbConn(InMemoryConn()),
             LogType.INFO,
-            "Message"
+            "Message",
+            System.currentTimeMillis()
         ).fetch()
 
         Assert.assertEquals(
