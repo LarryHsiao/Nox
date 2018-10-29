@@ -1,9 +1,9 @@
 package com.silverhetch.nox.model
 
 import com.silverhetch.clotho.Source
-import com.silverhetch.nox.model.log.LogDbConn
-import com.silverhetch.nox.model.logtags.LogTagsDbConn
-import com.silverhetch.nox.model.tag.TagDbConn
+import com.silverhetch.nox.model.log.LogDb
+import com.silverhetch.nox.model.logtags.LogTagsDb
+import com.silverhetch.nox.model.tag.TagDb
 import java.sql.Connection
 
 /**
@@ -11,9 +11,9 @@ import java.sql.Connection
  */
 class NoxDbConn(private val source: Source<Connection>) : Source<Connection> {
     override fun fetch(): Connection {
-        return TagDbConn(
-            LogDbConn(
-                LogTagsDbConn(source)
+        return TagDb(
+            LogDb(
+                LogTagsDb(source)
             )
         ).fetch()
     }

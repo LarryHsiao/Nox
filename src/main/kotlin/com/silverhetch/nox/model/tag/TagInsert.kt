@@ -7,7 +7,7 @@ import java.sql.SQLException
 /**
  * Tag insertion with given name.
  */
-class DbTagInsert(private val conn: Source<Connection>, private val name: String) : Source<NoxTag> {
+class TagInsert(private val conn: Source<Connection>, private val name: String) : Source<NoxTag> {
     override fun fetch(): NoxTag {
         conn.fetch().prepareStatement("""
             insert into tag (name)

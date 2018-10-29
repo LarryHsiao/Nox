@@ -4,11 +4,11 @@ import com.silverhetch.clotho.database.sqlite.InMemoryConn
 import org.junit.Assert
 import org.junit.Test
 
-class DbLogInsertTest {
+class LogInsertionTest {
     @Test
     fun simple() {
-        val newLog = DbLogInsert(
-            LogDbConn(InMemoryConn()),
+        val newLog = LogInsertion(
+            LogDb(InMemoryConn()),
             LogType.INFO,
             "Message",
             System.currentTimeMillis()

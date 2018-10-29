@@ -8,7 +8,7 @@ import java.sql.Timestamp
 /**
  * Database insertion of [Source]
  */
-class DbLogInsert(private val dbConn: Source<Connection>, private val logType: LogType, private val message: String, private val logTime:Long) : Source<NoxLog> {
+class LogInsertion(private val dbConn: Source<Connection>, private val logType: LogType, private val message: String, private val logTime:Long) : Source<NoxLog> {
     override fun fetch(): NoxLog {
         dbConn.fetch().prepareStatement("""
               insert into log (type, message, logTime)

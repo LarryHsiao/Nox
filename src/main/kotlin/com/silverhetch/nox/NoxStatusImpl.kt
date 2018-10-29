@@ -1,7 +1,7 @@
 package com.silverhetch.nox
 
 import com.silverhetch.clotho.Source
-import com.silverhetch.nox.model.log.DbLogQueryAll
+import com.silverhetch.nox.model.log.Logs
 import java.sql.Connection
 
 /**
@@ -9,6 +9,6 @@ import java.sql.Connection
  */
 class NoxStatusImpl(private val conn: Source<Connection>) : NoxStatus {
     override fun rows(): Long {
-        return DbLogQueryAll(conn).fetch().size.toLong()
+        return Logs(conn).fetch().size.toLong()
     }
 }

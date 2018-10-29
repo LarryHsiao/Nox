@@ -21,9 +21,8 @@ class TkPagedLogs(private val source: Source<List<NoxLog>>) : Take {
 
     override fun act(req: Request?): Response {
         var started = 0
-        val href = RqHref.Base(req).href()
-        href.param("started").let {
-            if (it.iterator().hasNext() && !it.first().isEmpty()) {
+        RqHref.Base(req).href().param("started").let {
+            if (it.iterator().hasNext() && !it.first().isEmpty()) { // TODO: Replace this condition code with FkParams().
                 started = it.first().toInt()
             }
         }

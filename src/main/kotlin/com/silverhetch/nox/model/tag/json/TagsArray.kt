@@ -8,14 +8,14 @@ import javax.json.JsonStructure
 /**
  * Json array of tags
  */
-class TagsArray(private val source: Source<List<NoxTag>>) : Source<JsonStructure> {
+class TagsArray(private val source: Source<Map<String,NoxTag>>) : Source<JsonStructure> {
     override fun fetch(): JsonStructure {
         return Json.createArrayBuilder().apply {
-            val list = source.fetch()
-            list.forEach {
+            val map = source.fetch()
+            map.entries.forEach {
                 add(
                     Json.createObjectBuilder()
-                        .add("name", it.name())
+                        .add("name", it.value.name())
                 )
             }
         }.build()

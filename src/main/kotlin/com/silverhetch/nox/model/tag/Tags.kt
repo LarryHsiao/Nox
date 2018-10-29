@@ -6,16 +6,17 @@ import java.sql.Connection
 /**
  * Tags in database.
  */
-class DbTags(private val conn: Source<Connection>) : Source<List<NoxTag>> {
-    override fun fetch(): List<NoxTag> {
+class Tags(private val conn: Source<Connection>) : Source<Map<String, NoxTag>> {
+    override fun fetch(): Map<String, NoxTag> {
         conn.fetch().createStatement().use { statement ->
             statement.executeQuery("""select * from tag;""").use {
-                val result = ArrayList<NoxTag>()
+                val result = HashMap<String, NoxTag>()
                 while (it.next()) {
-                    result.add(ConstTag(
+                    val name = it.getString(it.findColumn("name"))
+                    result[name] = ConstTag(
                         it.getLong(it.findColumn("id")),
-                        it.getString(it.findColumn("name"))
-                    ))
+                        name
+                    )
                 }
                 return result
             }

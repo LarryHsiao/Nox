@@ -11,7 +11,7 @@ class TagsArrayTest {
         assertEquals(
             "[{\"name\":\"Name\"}]",
             TagsArray(
-                ConstSource(listOf(ConstTag(-1, "Name")))
+                ConstSource(hashMapOf(Pair("Name",ConstTag(-1, "Name"))))
             ).fetch().toString()
         )
     }

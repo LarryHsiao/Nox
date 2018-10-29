@@ -5,10 +5,10 @@ import com.silverhetch.nox.model.NoxDbConn
 import org.junit.Assert
 import org.junit.Test
 
-class DbTagInsertTest {
+class TagInsertTest {
     @Test
     fun simple() {
-        DbTagInsert(
+        TagInsert(
             NoxDbConn(InMemoryConn()),
             "newTag"
         ).fetch().let { result ->

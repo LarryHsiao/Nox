@@ -4,7 +4,7 @@ import com.silverhetch.clotho.database.SingleConn
 import com.silverhetch.clotho.database.sqlite.InMemoryConn
 import com.silverhetch.clotho.log.PhantomLog
 import com.silverhetch.nox.model.NoxDbConn
-import com.silverhetch.nox.model.tag.DbTags
+import com.silverhetch.nox.model.tag.Tags
 import org.junit.Assert
 import org.junit.Test
 import org.takes.rq.RqFake
@@ -28,7 +28,7 @@ class TkTagInsertionTest {
 
         Assert.assertEquals(
             "NewNameOfTag",
-            DbTags(conn).fetch()[0].name()
+            Tags(conn).fetch()["NewNameOfTag"]!!.name()
         )
     }
 }

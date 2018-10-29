@@ -5,22 +5,22 @@ import com.silverhetch.clotho.database.sqlite.InMemoryConn
 import org.junit.Assert
 import org.junit.Test
 
-class DbLogQueryAllTest {
+class LogsTest {
     @Test
     fun simple() {
         val dbConn = SingleConn(
-            LogDbConn(
+            LogDb(
                 InMemoryConn()
             )
         )
-        DbLogInsert(
+        LogInsertion(
             dbConn,
             LogType.INFO,
             "Message",
             System.currentTimeMillis()
         ).fetch()
 
-        val result = DbLogQueryAll(
+        val result = Logs(
             dbConn
         ).fetch()
 

@@ -2,7 +2,7 @@ package com.silverhetch.nox.takes.tag
 
 import com.silverhetch.clotho.Source
 import com.silverhetch.clotho.log.Log
-import com.silverhetch.nox.model.tag.DbTagInsert
+import com.silverhetch.nox.model.tag.TagInsert
 import org.takes.Request
 import org.takes.Response
 import org.takes.Take
@@ -20,7 +20,7 @@ class TkTagInsertion(private val dbConn: Source<Connection>, private val log: Lo
         }
         Json.createReader(req.body()).readObject().let {
             log.info("Insert tag $it")
-            DbTagInsert(dbConn, it.getString("name")).fetch()
+            TagInsert(dbConn, it.getString("name")).fetch()
         }
 
         return RsEmpty()
