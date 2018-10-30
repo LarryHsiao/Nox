@@ -1,8 +1,6 @@
-package com.silverhetch.nox.model.logtags
+package com.silverhetch.nox.model.log
 
 import com.silverhetch.clotho.Source
-import com.silverhetch.nox.model.log.DbLogs
-import com.silverhetch.nox.model.log.NoxLog
 import java.sql.Connection
 
 /**

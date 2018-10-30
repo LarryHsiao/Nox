@@ -46,6 +46,7 @@ fun main(arg: Array<String>) {
                             FkRegex("(.*)", TkPagedLogs(Logs(dbConn)))
                         )
                     )),
+//                    FkMethods(listOf("POST", "PUT"), TkLogInsertion(dbConn, log)),
                     FkMethods(listOf("POST", "PUT"), TkLogInsertion(dbConn, log)),
                     FkRegex("/logs/status",
                         TkFork(
