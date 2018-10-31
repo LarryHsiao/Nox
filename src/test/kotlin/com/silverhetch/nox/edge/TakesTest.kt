@@ -21,12 +21,12 @@ class TakesTest {
                 TkFork(
                     FkRegex("/robots", "")
                 ),
-                8080
+                21000
             )
             front.start(Exit.NEVER)
         }.start()
         Thread.sleep(1000)
-        JdkRequest(URI("http://localhost:8080/robots"))
+        JdkRequest(URI("http://localhost:21000/robots"))
             .fetch()
             .`as`(RestResponse::class.java)
             .assertStatus(HttpURLConnection.HTTP_OK)

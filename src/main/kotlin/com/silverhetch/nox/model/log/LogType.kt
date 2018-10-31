@@ -1,4 +1,4 @@
-package com.silverhetch.nox
+package com.silverhetch.nox.model.log
 
 /**
  * General purpose type of log
